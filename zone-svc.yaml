@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zonesvc
+  #annotations:
+  # cloud.google.com/neg: '{"exposed_ports": {"8080":{}}}'
+spec:
+  type: ClusterIP
+  selector:
+    app: zoneprinter # Selects Pods labelled run: NEG_DEMO_APP
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080

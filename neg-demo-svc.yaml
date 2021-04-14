@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: negdemosvc
+  annotations:
+    cloud.google.com/neg: '{"exposed_ports": {"80":{}}}'
+spec:
+  type: ClusterIP
+  selector:
+    run: negdemoapp # Selects Pods labelled run: NEG_DEMO_APP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9376
